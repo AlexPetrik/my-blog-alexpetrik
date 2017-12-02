@@ -1,0 +1,19 @@
+<% layout('/page') -%>
+<% block('title', 'Статьи'); -%><br>
+
+<ul class="ul-articles">
+  <% for(var i=0; i<articles.length;i++) { %>
+    <li class="article">
+      <%-partial('article', {
+        date: articles[i].date,
+        title: articles[i].title,
+        description: articles[i].description,
+        id: articles[i]._id
+      })%>
+    </li>
+  <% } %>
+</ul>
+
+<div class="create-btn">
+  <a href="/new_note" class="btn btn-primary">Создать статью</a>
+</div>

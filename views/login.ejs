@@ -1,0 +1,14 @@
+<% layout('/page') -%>
+<% block('title', 'Вход'); -%><br>
+
+<form action="/login" method="post">
+  <label>Имя пользователя</label><br>
+  <input type="text" name="name" /><br><br>
+  <label>E-mail</label><br>
+  <input type="text" name="email" /><br><br>
+  <label>Пароль</label><br>
+  <input type="password" name="password" /><br><br>
+  <label>Повторный пароль</label></label><br>
+  <input type="password" name="rep_password" /><br><br>
+  <input type="submit" value="Отправить" class="btn btn-default" />
+</form>

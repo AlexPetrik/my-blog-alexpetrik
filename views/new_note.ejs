@@ -1,0 +1,13 @@
+<% layout('/page') -%>
+<% block('title', 'Статьи'); -%><br>
+
+<div>
+  <form id="new-article-form" class="new-article" action="/" method="post">
+    <input class="input-article" type="text" name="title" placeholder="Заголовок" required/>
+    <textarea class="input-article description" name="description" placeholder="Описание" rows="4" required></textarea>
+    <textarea class="input-article text" name="text" placeholder="Текст"rows="10" required></textarea>
+  </form>
+
+  <input type="submit" value="Отправить" class="btn btn-default post-article-btn" form="new-article-form"/>
+
+</div>
