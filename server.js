@@ -18,15 +18,22 @@ app.set('view engine', 'ejs');
 app.use(express.static('./public'));
 app.use(bodyParser.urlencoded({  extended: true }));
 
-MongoClient.connect(db.url, (err, database) => {
-  if (err) {
-    return console.log(err);
-  }
-  require('./app/routes')(app, database);
-  app.listen(port, () => {
+// MongoClient.connect(db.url, (err, database) => {
+//   if (err) {
+//     return console.log(err);
+//   }
+//   require('./app/routes')(app, database);
+//   app.listen(port, () => {
+//     console.log('We are live on ' + port);
+//   });
+// });
+
+MongoClient.connect(db.url)
+  .then(function (database) {
+    require('./app/routes')(app, database)
+  })
+  .then(app.listen(port, () => {
     console.log('We are live on ' + port);
-  });
-});
-
-
-
+  }))
+  .catch(function(err) { console.log(err) });
+  
